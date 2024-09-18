@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox prefHeight="55.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo145435.ListItemController">
+    <children>
+        <ImageView fx:id="courseimageurl" fitHeight="45.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </HBox.margin>
+            <image>
+                <Image url="@../../../imgs/face.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="coursecode" prefHeight="44.0" prefWidth="198.0" text="CSC311">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="coursetitle" prefHeight="85.0" prefWidth="201.0" text="Advanced Programming">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </HBox.margin>
+        </Label>
+        <Button fx:id="expandID" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="item-button" stylesheets="@../../../styles.css">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="deleteID" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="item-button-delete" stylesheets="@../../../styles.css">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </HBox.margin>
+        </Button>
+    </children>
+</HBox>

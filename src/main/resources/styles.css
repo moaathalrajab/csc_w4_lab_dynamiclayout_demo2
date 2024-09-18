@@ -1,0 +1,27 @@
+.profile-layout{
+    -fx-background-color: #b3992d;
+    -fx-background-radius: 0 0 50 50;
+}
+
+.item-layout{
+    -fx-background-color: #4ea0df;
+    -fx-background-radius: 0 20 20 20;
+}
+
+.item-button{
+    -fx-background-image: url(imgs/find.png);
+    -fx-background-size: 50%;
+    -fx-background-color: #64f62a;
+    -fx-background-radius: 20 20 20 20;
+    -fx-background-size:contain ;
+
+}
+
+.item-button-delete{
+    -fx-background-image: url(imgs/df.png);
+    -fx-background-size: 50%;
+    -fx-background-color: #64f62a;
+    -fx-background-radius: 20 20 20 20;
+    -fx-background-size:contain ;
+
+}
