@@ -1,6 +1,4 @@
-package org.example.demo145435;
-
-import java.util.List;
+package org.example.csc_w4_lab_dynamiclayout_demo;
 
 public class Course {
     private String iconURL;

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>demo145435</artifactId>
+    <artifactId>csc_w4_lab_dynamiclayout_demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>demo145435</name>
 
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.example.demo145435/org.example.demo145435.MainApplication</mainClass>
+                            <mainClass>org.example.demo145435/org.example.csc_w4_lab_dynamiclayout_demo.MainApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

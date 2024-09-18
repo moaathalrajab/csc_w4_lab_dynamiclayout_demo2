@@ -1,8 +1,8 @@
-module org.example.demo145435 {
+module org.example.csc_w4_lab_dynamiclayout_demo {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens org.example.demo145435 to javafx.fxml;
-    exports org.example.demo145435;
+    opens org.example.csc_w4_lab_dynamiclayout_demo to javafx.fxml;
+    exports org.example.csc_w4_lab_dynamiclayout_demo;
 }

@@ -1,4 +1,4 @@
-package org.example.demo145435;
+package org.example.csc_w4_lab_dynamiclayout_demo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
