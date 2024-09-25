@@ -1,5 +1,9 @@
 package org.example.csc_w4_lab_dynamiclayout_demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,11 +21,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.MenuItem;
@@ -29,6 +35,7 @@ import javafx.stage.Modality;
 
 public class MainController implements Initializable {
 
+    ObservableList<Course> ls ;
     Stage mainStage;
     @FXML
     private Label welcomeText;
@@ -48,6 +55,7 @@ public class MainController implements Initializable {
     void exitApplication(ActionEvent event) {
         System.exit(0);
     }
+
 
     @FXML
     void openAboutMenu(ActionEvent event) {
@@ -94,13 +102,14 @@ public class MainController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(mainStage);
 
         if (selectedFile != null) {
-            System.out.println("File selected: " + selectedFile.getPath());
+           ls.addAll( readCoursesFromFile(selectedFile) );
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Course> ls= getCourses();
+       ls= getCourses();
+       System.out.println(ls.toString());
 
 
         for (int i=0; i<ls.size(); i++){
@@ -112,9 +121,32 @@ public class MainController implements Initializable {
                 ListItemController itmC= (ListItemController)fxmlLoader.getController();
                 itmC.setData(ls.get(i));
                 listPlace.getChildren().add(root);
-            }catch (IOException e){}
+            }catch (IOException e){System.err.println(e);}
 
         }
+
+        ls.addListener(new ListChangeListener<Course>() {
+            @Override
+            public void onChanged(Change<? extends Course> change) {
+                for (int i=0; i<ls.size(); i++){
+                    FXMLLoader fxmlLoader= new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("list_item.fxml"));
+                    try{
+                        HBox root = fxmlLoader.load();
+
+                        ListItemController itmC= (ListItemController)fxmlLoader.getController();
+                        itmC.setData(ls.get(i));
+                        listPlace.getChildren().add(root);
+                    }catch (IOException e){System.err.println(e);}
+
+                }
+            }
+        }
+
+
+        );
+
+
         openMenuItem.setText(openMenuItem.getText()+"\t \t");
         openMenuItem
         .setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.ALT_DOWN));
@@ -127,9 +159,9 @@ public class MainController implements Initializable {
     }
 
 
+    private ObservableList<Course> getCourses(){
+        ls= FXCollections.<Course>observableArrayList();
 
-    private List<Course> getCourses(){
-        List<Course> ls= new ArrayList<>();
         Course c1= new Course(getClass().getResource("/imgs/face.png").toString(),
                 "CSC311", "Advanced Programming");
         Course c2= new Course(getClass().getResource("/imgs/face.png").toString(),
@@ -137,10 +169,32 @@ public class MainController implements Initializable {
         Course c3= new Course(getClass().getResource("/imgs/face.png").toString(),
                 "CSC375", "Advanced Programming");
         ls.add(c1);ls.add(c2);ls.add(c3);
-
-
         return ls;
 
     }
+
+      // write a test for this method in the MainControllerTest class.
+    private ObservableList<Course> readCoursesFromFile(File file) {
+        ObservableList<Course> courses = FXCollections.observableArrayList();
+        try {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(",");
+                if (parts.length != 3) {
+                    throw new IllegalArgumentException("Invalid file format");
+                }
+                String iconUrl = getClass().getResource(parts[2].trim()).toString();
+                String courseCode = parts[0];
+                String courseTitle = parts[1];
+                Course course = new Course(iconUrl, courseCode, courseTitle);
+                courses.add(course);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return courses;
+    }
+
 
 }

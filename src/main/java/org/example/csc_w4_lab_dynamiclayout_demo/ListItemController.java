@@ -30,6 +30,8 @@ public class ListItemController implements Initializable {
 
     }
 
+
+
     public void setData(Course c){
         courseimageurl.setImage(new Image(c.getIconURL()));
         coursetitle.setText(c.getCourseTitle());

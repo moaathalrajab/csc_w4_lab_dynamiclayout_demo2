@@ -32,7 +32,7 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="deleteID" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="item-button-delete" stylesheets="@../../../styles.css">
+        <Button fx:id="deleteID"  mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="item-button-delete" stylesheets="@../../../styles.css">
             <HBox.margin>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </HBox.margin>

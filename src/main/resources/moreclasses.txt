@@ -1,0 +1,6 @@
+BCS109, Intro to Python,/imgs/garage.png
+BCS102, Intro to Excel,/imgs/face.png
+BCS120, Intro to Programming,/imgs/garage.png
+BCS109, Intro to Python,/imgs/df.png
+CSC211, Programming II,/imgs/garage.png
+BCS109, Intro to Python,/imgs/open.png
